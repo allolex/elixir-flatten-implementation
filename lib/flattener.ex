@@ -4,7 +4,7 @@ defmodule Flattener do
   @doc "Flatten a list"
   def flatten(list), do: flatten(list, [])
 
-  defp flatten([first | rest] = args, list) do
+  defp flatten([first | rest], list) do
     flattened = flatten(first, list)
     flatten(rest, flattened)
   end
@@ -13,5 +13,5 @@ defmodule Flattener do
 
   defp flatten(single, list) when is_integer(single), do: list ++ [single]
 
-  defp flatten(_, list), do: []
+  defp flatten(_, _), do: []
 end
