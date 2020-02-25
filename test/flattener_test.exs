@@ -22,15 +22,15 @@ defmodule FlattenerTest do
     assert Flattener.flatten(1) == [1]
   end
 
-  test "fails when given a list of characters" do
+  test "returns an empty list when given a list of binaries/strings" do
     assert Flattener.flatten(["a"]) == []
   end
 
-  test "fails when given a hash type" do
+  test "returns an empty list when given a hash type" do
     assert Flattener.flatten(%{a: 1}) == []
   end
 
-  test "fails when given a hash type inside a list" do
+  test "returns an empty list when given a hash type inside a list" do
     assert Flattener.flatten([1, %{a: 1}]) == []
   end
 end
